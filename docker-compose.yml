@@ -1,0 +1,8 @@
+version: '3.0'
+
+services:
+  proxyapp:
+    container_name: proxy_app
+    build: .
+    ports:
+      - "8080:8080"
