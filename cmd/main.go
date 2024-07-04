@@ -1,14 +1,12 @@
 package main
 
 import (
-	"errors"
 	"github.com/gin-gonic/gin"
 	"github.com/luciorim/proxy-server/internal/handler"
 	"log"
 	"net/http"
+	"os"
 )
-
-const port = ":8080"
 
 func main() {
 	r := gin.Default()
@@ -20,14 +18,15 @@ func main() {
 		})
 	})
 
-	server := &http.Server{
-		Addr:    port,
-		Handler: r,
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8181"
 	}
 
-	log.Printf("Server started on port %s\n", port)
+	log.Printf("Listening on port %s", port)
 
-	if err := server.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
-		log.Fatalf("Server startup failed: %v\n", err)
+	if err := r.Run(":" + port); err != nil {
+		log.Fatal(err)
 	}
+
 }
