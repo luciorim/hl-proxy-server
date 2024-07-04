@@ -93,3 +93,59 @@ https://proxy-server-rl0v.onrender.com
   "length": 21187
 }
 ```
+
+### `GET /proxy`
+**Description:** Returns history of all requests.
+
+**Example Response:**
+```json
+{
+    "1_req": {
+        "method": "GET",
+        "url": "http://www.google.com",
+        "headers": {
+            "Authorization": "Basic kfdafgd7f6djfhksd_"
+        }
+    },
+    "1_res": {
+        "id": "1",
+        "url": "http://www.google.com",
+        "status": 200,
+        "headers": {
+            "Cache-Control": [
+                "private, max-age=0"
+            ],
+            "Content-Security-Policy-Report-Only": [
+                "object-src 'none';base-uri 'self';script-src 'nonce-UDt8Q40WM5OCjZ8RRmgXYw' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
+            ],
+            "Content-Type": [
+                "text/html; charset=ISO-8859-1"
+            ],
+            "Date": [
+                "Thu, 04 Jul 2024 19:18:45 GMT"
+            ],
+            "Expires": [
+                "-1"
+            ],
+            "P3p": [
+                "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\""
+            ],
+            "Server": [
+                "gws"
+            ],
+            "Set-Cookie": [
+                "AEC=AVYB7coUJkX3DR8O3i6GEgseGPiEaYL6jGT2S899VF-kWeCy1tH82Rss5Vk; expires=Tue, 31-Dec-2024 19:18:45 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax",
+                "NID=515=OvET70nUz3IHA9gne7tEUDDjQIB53azYlPQl9VSoQMeTrH5ptghq62v4E7H-_kbl_Lm87aFA9MPtJaakVvioAqrQ3KY2mQ945Mp09hPfCgOF3y4JN7rKn-ddhOcfkuINVqHB4aR3rEfJ9C5VCQfehEqqPCP7QvbqgrL4zKa9oBs; expires=Fri, 03-Jan-2025 19:18:45 GMT; path=/; domain=.google.com; HttpOnly"
+            ],
+            "X-Frame-Options": [
+                "SAMEORIGIN"
+            ],
+            "X-Xss-Protection": [
+                "0"
+            ]
+        },
+        "length": 21566
+    }
+}
+
+```
