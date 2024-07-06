@@ -21,6 +21,18 @@ func NewProxyService(proxyCache *cache.Cache) *ProxyService {
 
 var id int
 
+// ProcessProxy godoc
+//
+//	@Summary 	process requested url
+//	@Tags 		proxy-controller
+//	@Description allows make http request to another website
+//	@Accept 		json
+//	@Produce 	json
+//	@Param 		input  body     dto.ProxyRequest  true "request data"
+//	@Success 	200    {object} dto.ProxyResponse
+//	@Failure 	400    {object} string
+//	@Failure 	502    {object} string
+//	@Router 		/proxy [post]
 func (p *ProxyService) ProcessProxy(ctx *gin.Context) {
 	var proxyReq dto.ProxyRequest
 
@@ -70,6 +82,15 @@ func (p *ProxyService) ProcessProxy(ctx *gin.Context) {
 	return
 }
 
+// GetById godoc
+//
+//	@Summary get proxy history by id
+//	@Tags proxy-controller
+//	@Description return request and response by id
+//	@Produce json
+//	@Param id path int true "request id"
+//	@Failure 400 {object} dto.ProxyResponse
+//	@Router /proxy/{id} [get]
 func (p *ProxyService) GetById(ctx *gin.Context) {
 
 	idFromPath := ctx.Param("id")
@@ -105,7 +126,7 @@ func saveError(c *cache.Cache, ctx *gin.Context, proxyReq dto.ProxyRequest, stat
 
 	c.Set(&proxyReq, &proxyRes)
 
-	ctx.JSON(http.StatusOK, proxyRes)
+	ctx.JSON(http.StatusBadRequest, proxyRes)
 
 }
 

@@ -8,6 +8,12 @@ import (
 	"github.com/luciorim/proxy-server/internal/utils/logger"
 )
 
+// @title Proxy Server
+// @version 1.0
+// @description Server allows do http requests to another websites
+
+// @host localhost:8181
+// @BasePath /
 func main() {
 
 	cfg := config.MustInit()

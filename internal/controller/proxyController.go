@@ -3,7 +3,11 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/luciorim/proxy-server/internal/service"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
+
+	_ "github.com/luciorim/proxy-server/docs"
 )
 
 type ProxyController struct {
@@ -17,14 +21,20 @@ func NewProxyController(service *service.ProxyService) *ProxyController {
 }
 
 func (p *ProxyController) InitRoutes() *gin.Engine {
+
 	r := gin.Default()
+
 	r.POST("/proxy", p.ProxyService.ProcessProxy)
+
 	r.GET("/proxy/:id", p.ProxyService.GetById)
+
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
 		})
 	})
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	return r
 
