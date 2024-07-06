@@ -1,11 +1,13 @@
-FROM golang:1.22.0
+FROM golang:1.22.5-alpine
 
 WORKDIR /app
 
-COPY . .
+COPY go.mod go.sum ./
 
 RUN go mod download
 
-EXPOSE 8080
+COPY . .
 
-CMD ["go", "run", "/app/cmd", "."]
+RUN go build -o /proxy-server ./cmd/app/main.go
+
+CMD ["/proxy-server"]

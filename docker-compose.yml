@@ -1,8 +1,9 @@
 version: '3.0'
 
 services:
-  proxyapp:
-    container_name: proxy_app
+  proxy:
     build: .
     ports:
-      - "8080:8080"
+      - "8181:8181"
+    environment:
+      CONFIG_PATH: config/local.yaml
