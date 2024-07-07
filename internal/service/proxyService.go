@@ -98,7 +98,7 @@ func (p *ProxyService) GetById(ctx *gin.Context) {
 	req, res := p.Cache.Get(idFromPath)
 
 	if res == nil || req == nil {
-		ctx.JSON(http.StatusBadRequest, fmt.Sprintf("Request with ID: %d not found", id))
+		ctx.JSON(http.StatusBadRequest, fmt.Sprintf("Request with ID: %d not found", idFromPath))
 		return
 	}
 
