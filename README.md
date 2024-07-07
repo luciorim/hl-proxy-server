@@ -5,7 +5,12 @@ This is a proxy server built using Go. It forwards requests to a specified serve
 ## Public URL
 
 ```bash
-https://proxy-server-rl0v.onrender.com
+https://proxy-server-1-g9kn.onrender.com
+```
+
+## Swagger Url
+```bash
+/swagger/index.html
 ```
 
 ## Getting started
@@ -94,20 +99,21 @@ https://proxy-server-rl0v.onrender.com
 }
 ```
 
-### `GET /proxy`
-**Description:** Returns history of all requests.
+### `GET /proxy/:id`
+**Description:** Returns request by id.
 
 **Example Response:**
 ```json
 {
-    "1_req": {
+    "id": 1,
+    "request": {
         "method": "GET",
         "url": "http://www.google.com",
         "headers": {
             "Authorization": "Basic kfdafgd7f6djfhksd_"
         }
     },
-    "1_res": {
+    "response": {
         "id": "1",
         "url": "http://www.google.com",
         "status": 200,
@@ -116,13 +122,13 @@ https://proxy-server-rl0v.onrender.com
                 "private, max-age=0"
             ],
             "Content-Security-Policy-Report-Only": [
-                "object-src 'none';base-uri 'self';script-src 'nonce-UDt8Q40WM5OCjZ8RRmgXYw' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
+                "object-src 'none';base-uri 'self';script-src 'nonce-KkDo2ThusayKCRkb4A-URA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp"
             ],
             "Content-Type": [
                 "text/html; charset=ISO-8859-1"
             ],
             "Date": [
-                "Thu, 04 Jul 2024 19:18:45 GMT"
+                "Sun, 07 Jul 2024 12:31:07 GMT"
             ],
             "Expires": [
                 "-1"
@@ -134,8 +140,8 @@ https://proxy-server-rl0v.onrender.com
                 "gws"
             ],
             "Set-Cookie": [
-                "AEC=AVYB7coUJkX3DR8O3i6GEgseGPiEaYL6jGT2S899VF-kWeCy1tH82Rss5Vk; expires=Tue, 31-Dec-2024 19:18:45 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax",
-                "NID=515=OvET70nUz3IHA9gne7tEUDDjQIB53azYlPQl9VSoQMeTrH5ptghq62v4E7H-_kbl_Lm87aFA9MPtJaakVvioAqrQ3KY2mQ945Mp09hPfCgOF3y4JN7rKn-ddhOcfkuINVqHB4aR3rEfJ9C5VCQfehEqqPCP7QvbqgrL4zKa9oBs; expires=Fri, 03-Jan-2025 19:18:45 GMT; path=/; domain=.google.com; HttpOnly"
+                "AEC=AVYB7crrYz4QGx-OakNMx7Hq2viI36uPlcZK6jjChuvJB29YJa9zGrCjcQ; expires=Fri, 03-Jan-2025 12:31:07 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax",
+                "NID=515=NXVzYLUojZ7kDIKicIrh_JhWveVlNLJ-nZxpgYGbmn0rTAgoH3nnclh3TemW9inz27uXy6t7r0cOnOrQ_HT4iRpszx_gwzJaCpnZd87wEXHvWlUt2F2v7aep2yX1uOgs6JuTzpaE40CXZbgmvVSPi1l3PE9ZzhY2EdjBJYAeIgo; expires=Mon, 06-Jan-2025 12:31:07 GMT; path=/; domain=.google.com; HttpOnly"
             ],
             "X-Frame-Options": [
                 "SAMEORIGIN"
@@ -144,7 +150,7 @@ https://proxy-server-rl0v.onrender.com
                 "0"
             ]
         },
-        "length": 21566
+        "length": 21198
     }
 }
 
